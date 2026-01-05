@@ -1,11 +1,13 @@
 {
+  "id": "/saya/index.html",
   "name": "Event Alpha Digital",
   "short_name": "Alpha Event",
   "description": "Website informasi event, bonus dan panduan lengkap",
-  "start_url": "index.html",
+  "start_url": "/saya/index.html",
   "display": "standalone",
-  "background_color": "#0f2027",
-  "theme_color": "#0f2027",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "icon-192.png",
