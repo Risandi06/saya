@@ -7,16 +7,16 @@
 
 <!-- PWA -->
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#0f2027">
+<meta name="theme-color" content="#0f172a">
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 
-/* ================= THEME ================= */
+/* THEME */
 :root{
-  --panel-bg:rgba(255,255,255,.97);
+  --panel-bg:rgba(255,255,255,.96);
   --text:#333;
   --accent:#f5a623;
   --shadow:0 18px 40px rgba(0,0,0,.35);
@@ -26,7 +26,7 @@ body.dark{
   --text:#f1f1f1;
 }
 
-/* ================= BODY ================= */
+/* BODY */
 body{
   font-family:'Roboto',sans-serif;
   color:var(--text);
@@ -36,7 +36,7 @@ body{
   transition:.4s;
 }
 
-/* ================= HEADER ================= */
+/* HEADER */
 header{
   height:75vh;
   position:relative;
@@ -53,7 +53,7 @@ header video{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.6;
+  opacity:.55;
   z-index:-1;
 }
 header img{width:120px;margin-bottom:20px}
@@ -70,7 +70,7 @@ header p{
   border-radius:14px;
 }
 
-/* ================= SECTION PANEL ================= */
+/* SECTION */
 section{
   max-width:1200px;
   margin:50px auto;
@@ -80,9 +80,9 @@ section{
   box-shadow:var(--shadow);
 }
 
-/* ================= ABOUT ================= */
+/* ABOUT */
 #about{text-align:center}
-#about h2{color:var(--accent);font-size:2.4rem;margin-bottom:20px}
+#about h2{color:var(--accent);font-size:2.3rem;margin-bottom:20px}
 #about p{max-width:850px;margin:auto}
 #aboutToggle{
   margin-top:30px;
@@ -104,8 +104,8 @@ section{
 }
 #aboutInfo.open{max-height:500px;opacity:1}
 
-/* ================= CARDS ================= */
-#cards,#extraCards{
+/* CARDS */
+.cards{
   display:flex;
   gap:30px;
   flex-wrap:wrap;
@@ -115,18 +115,18 @@ section{
   width:280px;
   padding:25px;
   border-radius:18px;
-  background:rgba(255,255,255,.95);
+  background:#fff;
   box-shadow:0 10px 25px rgba(0,0,0,.25);
   transition:.4s;
 }
 body.dark .card{
-  background:rgba(40,45,50,.95);
+  background:#1e293b;
   color:#f1f1f1;
 }
 .card:hover{transform:translateY(-10px) scale(1.05)}
 .card h3{color:var(--accent);margin-bottom:12px}
 
-/* ================= HIGHLIGHT ================= */
+/* HIGHLIGHT */
 .card-highlight{
   margin:45px auto 0;
   max-width:750px;
@@ -136,12 +136,12 @@ body.dark .card{
   border-radius:18px;
 }
 
-/* ================= RATING ================= */
+/* RATING */
 .rating-header{text-align:center;margin-bottom:40px}
 .rating-header .title{font-size:1.8rem}
 .rating-header .subtitle{opacity:.85}
 
-/* ================= TESTIMONI ================= */
+/* TESTIMONI */
 .testimonial-container{
   max-width:750px;
   margin:auto;
@@ -154,13 +154,13 @@ body.dark .card{
 .testimonial{
   min-width:100%;
   padding:28px;
-  background:var(--panel-bg);
   border-radius:18px;
   box-shadow:var(--shadow);
+  background:var(--panel-bg);
 }
 .author{margin-top:12px;font-weight:bold;color:var(--accent)}
 
-/* ================= FORM ================= */
+/* FORM */
 #form{text-align:center}
 form{
   max-width:480px;
@@ -181,17 +181,17 @@ button{
   cursor:pointer;
 }
 
-/* ================= FOLLOW ================= */
+/* FOLLOW */
 #follow{text-align:center}
-#follow img{width:34px;margin:0 12px}
-#sponsor img{width:70px;margin:12px}
+#follow img{width:34px;margin:0 10px}
+#sponsor img{width:60px;margin:10px}
 
-/* ================= FLOATING BUTTONS ================= */
+/* FLOATING */
 #csBtn,#themeToggle,#installBtn{
   position:fixed;
   border:none;
   cursor:pointer;
-  z-index:999;
+  z-index:9999;
 }
 
 /* CS */
@@ -253,7 +253,7 @@ body.dark #themeToggle{background:#ffd166;color:#111}
   text-align:center;
 }
 
-/* ================= RESPONSIVE ================= */
+/* RESPONSIVE */
 @media(max-width:768px){
   header h1{font-size:2.2rem}
   section{margin:30px 15px;padding:50px 20px}
@@ -267,55 +267,55 @@ body.dark #themeToggle{background:#ffd166;color:#111}
   <img src="logo.png">
   <video src="header-video.mp4" autoplay muted loop></video>
   <h1>Event Alpha Digital</h1>
-  <p>Informasi event, bonus, dan panduan lengkap dalam satu website</p>
+  <p>Informasi event, bonus, dan panduan lengkap</p>
 </header>
 
 <section id="about">
   <h2>Tentang Website</h2>
   <p>
-    Selamat datang di event yang diselenggarakan ini, saya akan menjelaskan semuanya di web ini.
-    Melalui website ini, kami akan menjelaskan seluruh informasi event secara lengkap,
-    mulai dari alur pendaftaran, mekanisme event, hingga berbagai manfaat dan bonus yang bisa Anda dapatkan.
+    Selamat datang di event yang diselenggarakan ini.  
+    Melalui website ini kami menyajikan informasi lengkap mulai dari pendaftaran,
+    mekanisme event, hingga manfaat dan bonus.
   </p>
   <div id="aboutToggle">Selengkapnya ▼</div>
   <div id="aboutInfo">
-    <p>Website ini dibuat untuk memberikan informasi transparan, profesional, dan mudah dipahami.</p>
+    <p>Website ini dibuat profesional, transparan, dan mudah dipahami oleh semua peserta.</p>
   </div>
 </section>
 
 <section>
-  <div id="cards">
-    <div class="card"><h3>Event Terbaru</h3><p>Informasi selalu update.</p></div>
-    <div class="card"><h3>Bonus Transparan</h3><p>Sistem jelas dan aman.</p></div>
-    <div class="card"><h3>Panduan Lengkap</h3><p>Mudah dipahami.</p></div>
+  <div class="cards">
+    <div class="card"><h3>Event Terbaru</h3><p>Update real-time.</p></div>
+    <div class="card"><h3>Bonus Transparan</h3><p>Sistem jelas & aman.</p></div>
+    <div class="card"><h3>Panduan Lengkap</h3><p>Mudah diikuti.</p></div>
   </div>
 
   <div class="card-highlight">
-    <h3>Mengapa Event Alpha Digital Wajib di Ikuti?</h3>
-    <p>Event ini dirancang secara profesional dengan sistem terbukti, transparan, dan dukungan tim berpengalaman.</p>
+    <h3>Mengapa Event Alpha Digital Wajib Diikuti?</h3>
+    <p>Sistem profesional, dukungan tim berpengalaman, dan manfaat nyata bagi peserta.</p>
   </div>
 </section>
 
 <section>
-  <div id="extraCards">
+  <div class="cards">
     <div class="card"><h3>Sistem Terbukti</h3><p>Telah diikuti banyak peserta.</p></div>
     <div class="card"><h3>Aman & Terpercaya</h3><p>Tidak ada biaya tersembunyi.</p></div>
-    <div class="card"><h3>Support Aktif</h3><p>CS siap membantu kapan saja.</p></div>
+    <div class="card"><h3>Support Aktif</h3><p>CS siap membantu.</p></div>
   </div>
 </section>
 
 <section id="testimoni">
   <div class="rating-header">
     <div class="title">⭐⭐⭐⭐⭐ Testimoni Klien Event</div>
-    <div class="subtitle">4.9 / 5 dari 120+ klien event</div>
+    <div class="subtitle">4.9 / 5 dari 120+ klien</div>
   </div>
 
   <div class="testimonial-container">
     <div class="testimonial-slide">
-      <div class="testimonial"><p>Event sangat profesional.</p><div class="author">Andi</div></div>
+      <div class="testimonial"><p>Event profesional.</p><div class="author">Andi</div></div>
       <div class="testimonial"><p>Bonus cepat cair.</p><div class="author">Sari</div></div>
-      <div class="testimonial"><p>Website jelas.</p><div class="author">Budi</div></div>
-      <div class="testimonial"><p>CS ramah.</p><div class="author">Rina</div></div>
+      <div class="testimonial"><p>Sistem jelas.</p><div class="author">Budi</div></div>
+      <div class="testimonial"><p>CS responsif.</p><div class="author">Rina</div></div>
       <div class="testimonial"><p>Sangat direkomendasikan.</p><div class="author">Dewi</div></div>
     </div>
   </div>
@@ -345,7 +345,7 @@ body.dark #themeToggle{background:#ffd166;color:#111}
   </div>
 </section>
 
-<!-- FLOATING BUTTONS -->
+<!-- FLOATING -->
 <button id="installBtn">📲 Install Aplikasi</button>
 <button id="csBtn">💬</button>
 <button id="themeToggle">🌙</button>
@@ -356,103 +356,67 @@ body.dark #themeToggle{background:#ffd166;color:#111}
 </div>
 
 <script>
-/* ================= SERVICE WORKER ================= */
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('sw.js');
+// SERVICE WORKER
+if("serviceWorker" in navigator){
+  navigator.serviceWorker.register("sw.js");
 }
 
-/* ================= DARK / LIGHT ================= */
-const themeBtn=document.getElementById('themeToggle');
-if(localStorage.getItem('theme')==='dark'){
-  document.body.classList.add('dark');
-  themeBtn.textContent='☀️';
+// DARK MODE
+const themeBtn=document.getElementById("themeToggle");
+if(localStorage.getItem("theme")==="dark"){
+  document.body.classList.add("dark");
+  themeBtn.textContent="☀️";
 }
 themeBtn.onclick=()=>{
-  document.body.classList.toggle('dark');
-  const d=document.body.classList.contains('dark');
-  themeBtn.textContent=d?'☀️':'🌙';
-  localStorage.setItem('theme',d?'dark':'light');
+  document.body.classList.toggle("dark");
+  const d=document.body.classList.contains("dark");
+  themeBtn.textContent=d?"☀️":"🌙";
+  localStorage.setItem("theme",d?"dark":"light");
 };
 
-/* ================= ABOUT ================= */
+// ABOUT TOGGLE
 aboutToggle.onclick=()=>{
-  aboutInfo.classList.toggle('open');
+  aboutInfo.classList.toggle("open");
   aboutToggle.textContent=
-    aboutInfo.classList.contains('open')?'Tutup ▲':'Selengkapnya ▼';
+    aboutInfo.classList.contains("open")?"Tutup ▲":"Selengkapnya ▼";
 };
 
-/* ================= TESTIMONI ================= */
+// TESTIMONI SLIDE
 let i=0;
 setInterval(()=>{
-  const slide=document.querySelector('.testimonial-slide');
-  i=(i+1)%5;
-  slide.style.transform=`translateX(${-i*100}%)`;
+  document.querySelector(".testimonial-slide")
+    .style.transform=`translateX(${-++i%5*100}%)`;
 },4500);
 
-/* ================= CS ================= */
+// CS POPUP
 csBtn.onclick=()=>{
-  csPopup.style.display=csPopup.style.display==='block'?'none':'block';
+  csPopup.style.display=csPopup.style.display==="block"?"none":"block";
 };
 
-/* ================= INSTALL BUTTON ================= */
+// INSTALL BUTTON (FINAL & AMAN)
 let deferredPrompt;
-const installBtn=document.getElementById('installBtn');
+const installBtn=document.getElementById("installBtn");
 
-window.addEventListener('beforeinstallprompt',(e)=>{
+window.addEventListener("beforeinstallprompt",e=>{
   e.preventDefault();
   deferredPrompt=e;
-  installBtn.style.display='block';
+  installBtn.style.display="block";
 });
 
 installBtn.onclick=async()=>{
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const res=await deferredPrompt.userChoice;
-  if(res.outcome==='accepted') installBtn.style.display='none';
-  deferredPrompt=null;
+  if(deferredPrompt){
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt=null;
+  }else{
+    alert("Klik menu ⋮ Chrome → Tambahkan ke layar utama");
+  }
 };
-  <button id="installBtn" style="
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  padding:12px 18px;
-  background:#22c55e;
-  color:#fff;
-  border:none;
-  border-radius:30px;
-  font-size:14px;
-  cursor:pointer;
-  display:none;
-  z-index:9999;
-">
-⬇️ Install Aplikasi
-</button>
 
-
-window.addEventListener('appinstalled',()=>{
-  installBtn.style.display='none';
+window.addEventListener("appinstalled",()=>{
+  installBtn.style.display="none";
 });
-  <script>
-let deferredPrompt;
-const installBtn = document.getElementById("installBtn");
-
-window.addEventListener("beforeinstallprompt", (e) => {
-  e.preventDefault();
-  deferredPrompt = e;
-  installBtn.style.display = "block";
-});
-
-installBtn.addEventListener("click", async () => {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  const choice = await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  installBtn.style.display = "none";
-});
-</script>
-
 </script>
 
 </body>
 </html>
-
