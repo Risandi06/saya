@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+<head<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f2027">
+>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Alpha Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+/* ===== THEME ===== */
+:root{
+  --panel-bg:rgba(255,255,255,.97);
+  --text:#333;
+  --accent:#f5a623;
+  --shadow:0 18px 40px rgba(0,0,0,.35);
+}
+body.dark{
+  --panel-bg:rgba(25,30,35,.96);
+  --text:#f1f1f1;
+}
+
+/* ===== BODY ===== */
+body{
+  font-family:'Roboto',sans-serif;
+  color:var(--text);
+  background:
+    linear-gradient(rgba(10,20,30,.85),rgba(10,20,30,.85)),
+    url("bg-body.jpg") center/cover fixed no-repeat;
+  transition:.4s;
+}
+
+/* ===== HEADER ===== */
+header{
+  height:75vh;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+}
+header video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.6;
+  z-index:-1;
+}
+header img{width:120px;margin-bottom:20px}
+header h1{
+  font-size:3rem;
+  background:rgba(0,0,0,.55);
+  padding:18px 30px;
+  border-radius:18px;
+}
+header p{
+  margin-top:15px;
+  background:rgba(0,0,0,.45);
+  padding:12px 22px;
+  border-radius:14px;
+}
+
+/* ===== PANEL ===== */
+section{
+  max-width:1200px;
+  margin:50px auto;
+  padding:70px 30px;
+  background:var(--panel-bg);
+  border-radius:28px;
+  box-shadow:var(--shadow);
+}
+
+/* ===== ABOUT ===== */
+#about{text-align:center}
+#about h2{color:var(--accent);font-size:2.4rem;margin-bottom:20px}
+#about p{max-width:850px;margin:auto}
+#aboutToggle{
+  margin-top:30px;
+  font-weight:bold;
+  color:var(--accent);
+  cursor:pointer;
+}
+#aboutInfo{
+  max-width:850px;
+  margin:25px auto 0;
+  background:rgba(245,166,35,.12);
+  padding:25px;
+  border-radius:18px;
+  max-height:0;
+  opacity:0;
+  overflow:hidden;
+  transition:.6s;
+  text-align:left;
+}
+#aboutInfo.open{max-height:500px;opacity:1}
+
+/* ===== CARDS ===== */
+#cards,#extraCards{
+  display:flex;
+  gap:30px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.card{
+  width:280px;
+  padding:25px;
+  border-radius:18px;
+  background:rgba(255,255,255,.95);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
+  transition:.4s;
+}
+body.dark .card{
+  background:rgba(40,45,50,.95);
+  color:#f1f1f1;
+}
+.card:hover{transform:translateY(-10px) scale(1.05)}
+.card h3{color:var(--accent);margin-bottom:12px}
+
+/* ===== HIGHLIGHT ===== */
+.card-highlight{
+  margin:45px auto 0;
+  max-width:750px;
+  background:rgba(245,166,35,.15);
+  padding:30px;
+  border-left:6px solid var(--accent);
+  border-radius:18px;
+}
+
+/* ===== RATING ===== */
+.rating-header{text-align:center;margin-bottom:40px}
+.rating-header .title{font-size:1.8rem}
+.rating-header .subtitle{opacity:.85}
+
+/* ===== TESTIMONI ===== */
+.testimonial-container{
+  max-width:750px;
+  margin:auto;
+  overflow:hidden;
+}
+.testimonial-slide{
+  display:flex;
+  transition:.8s;
+}
+.testimonial{
+  min-width:100%;
+  padding:28px;
+  background:var(--panel-bg);
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+.author{margin-top:12px;font-weight:bold;color:var(--accent)}
+
+/* ===== FORM ===== */
+#form{text-align:center}
+form{
+  max-width:480px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+input,textarea,button{
+  padding:13px;
+  border-radius:10px;
+  font-size:1rem;
+}
+button{
+  background:var(--accent);
+  color:#fff;
+  border:none;
+  cursor:pointer;
+}
+
+/* ===== FOLLOW ===== */
+#follow{text-align:center}
+#follow img{width:34px;margin:0 12px}
+#sponsor img{width:70px;margin:12px}
+
+/* ===== CS ===== */
+#csBtn{
+  position:fixed;
+  right:25px;
+  bottom:25px;
+  width:68px;
+  height:68px;
+  border-radius:50%;
+  background:var(--accent);
+  color:#fff;
+  font-size:1.8rem;
+  border:none;
+  cursor:pointer;
+}
+#csPopup{
+  display:none;
+  position:fixed;
+  right:25px;
+  bottom:110px;
+  background:var(--panel-bg);
+  padding:20px;
+  border-radius:18px;
+  box-shadow:var(--shadow);
+}
+#csPopup a{
+  display:block;
+  background:var(--accent);
+  color:#fff;
+  padding:12px;
+  border-radius:10px;
+  margin-bottom:12px;
+  text-align:center;
+}
+
+/* ===== THEME ===== */
+#themeToggle{
+  position:fixed;
+  left:25px;
+  bottom:25px;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  border:none;
+  background:#111;
+  color:#fff;
+  font-size:1.5rem;
+  cursor:pointer;
+}
+body.dark #themeToggle{background:#ffd166;color:#111}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  header h1{font-size:2.2rem}
+  section{margin:30px 15px;padding:50px 20px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <img src="logo.png">
+  <video src="header-video.mp4" autoplay muted loop></video>
+  <h1>Event Alpha Digital</h1>
+  <p>Informasi event, bonus, dan panduan lengkap dalam satu website</p>
+</header>
+
+<section id="about">
+  <h2>Tentang Website</h2>
+  <p>
+    Melalui website ini, kami akan menjelaskan seluruh informasi event secara lengkap,
+    mulai dari alur pendaftaran, mekanisme event, hingga manfaat dan bonus yang bisa Anda dapatkan.
+  </p>
+  <div id="aboutToggle">Selengkapnya ▼</div>
+  <div id="aboutInfo">
+    <p>Website ini dirancang agar peserta memahami event dengan mudah, transparan, dan profesional.</p>
+  </div>
+</section>
+
+<section>
+  <div id="cards">
+    <div class="card"><h3>Event Terbaru</h3><p>Informasi selalu update.</p></div>
+    <div class="card"><h3>Bonus Transparan</h3><p>Sistem jelas dan aman.</p></div>
+    <div class="card"><h3>Panduan Lengkap</h3><p>Mudah dipahami.</p></div>
+  </div>
+
+  <div class="card-highlight">
+    <h3>Mengapa Event Alpha Digital Wajib di Ikuti?</h3>
+    <p>Event ini dirancang secara profesional dengan sistem yang terbukti, transparan, dan didukung tim berpengalaman.</p>
+  </div>
+</section>
+
+<section>
+  <div id="extraCards">
+    <div class="card"><h3>Sistem Terbukti</h3><p>Telah diikuti banyak peserta.</p></div>
+    <div class="card"><h3>Aman & Legal</h3><p>Tanpa biaya tersembunyi.</p></div>
+    <div class="card"><h3>Support Aktif</h3><p>CS siap membantu.</p></div>
+  </div>
+</section>
+
+<section id="testimoni">
+  <div class="rating-header">
+    <div class="title">⭐⭐⭐⭐⭐ Testimoni Klien Event</div>
+    <div class="subtitle">4.9 / 5 dari 120+ klien event</div>
+  </div>
+
+  <div class="testimonial-container">
+    <div class="testimonial-slide">
+      <div class="testimonial"><p>Event sangat profesional.</p><div class="author">Andi</div></div>
+      <div class="testimonial"><p>Bonus cepat cair.</p><div class="author">Sari</div></div>
+      <div class="testimonial"><p>Website jelas.</p><div class="author">Budi</div></div>
+      <div class="testimonial"><p>CS ramah.</p><div class="author">Rina</div></div>
+      <div class="testimonial"><p>Sangat direkomendasikan.</p><div class="author">Dewi</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="form">
+  <h2>Daftar Sekarang</h2>
+  <form>
+    <input placeholder="Nama Lengkap">
+    <input placeholder="Nomor Telepon">
+    <textarea placeholder="Pesan"></textarea>
+    <button>Kirim</button>
+  </form>
+</section>
+
+<section id="follow">
+  <h2>Ikuti Kami</h2>
+  <img src="fb.png">
+  <img src="ig.png">
+  <img src="tt.png">
+
+  <h2>Sponsor</h2>
+  <div id="sponsor">
+    <img src="s1.png">
+    <img src="s2.png">
+    <img src="s3.png">
+  </div>
+</section>
+
+<button id="csBtn">💬</button>
+<div id="csPopup">
+  <a href="#">WhatsApp</a>
+  <a href="#">Telegram</a>
+</div>
+
+<button id="themeToggle">🌙</button>
+
+<script>
+/* theme */
+const toggle=document.getElementById('themeToggle');
+if(localStorage.getItem('theme')==='dark'){
+  document.body.classList.add('dark');
+  toggle.textContent='☀️';
+}
+toggle.onclick=()=>{
+  document.body.classList.toggle('dark');
+  const d=document.body.classList.contains('dark');
+  toggle.textContent=d?'☀️':'🌙';
+  localStorage.setItem('theme',d?'dark':'light');
+};
+
+/* about */
+aboutToggle.onclick=()=>{
+  aboutInfo.classList.toggle('open');
+  aboutToggle.textContent=
+    aboutInfo.classList.contains('open')?'Tutup ▲':'Selengkapnya ▼';
+};
+
+/* testimoni */
+let i=0;
+setInterval(()=>{
+  const slide=document.querySelector('.testimonial-slide');
+  i=(i+1)%5;
+  slide.style.transform=`translateX(${-i*100}%)`;
+},4500);
+
+/* cs */
+csBtn.onclick=()=>{
+  csPopup.style.display=csPopup.style.display==='block'?'none':'block';
+};/* ===== INSTALL BUTTON ===== */
+#installBtn{
+  position:fixed;
+  bottom:110px;
+  right:25px;
+  padding:14px 20px;
+  font-size:15px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#f5a623,#ff7a18);
+  color:#fff;
+  cursor:pointer;
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+  display:none;
+  z-index:999;
+  transition:.3s;
+}
+#installBtn:hover{
+  transform:scale(1.05);
+}
+
+</script>
+<script>
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+/* Tangkap event install */
+window.addEventListener("beforeinstallprompt", (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+  installBtn.style.display = "block";
+});
+
+/* Klik tombol install */
+installBtn.addEventListener("click", async ()=>{
+  if(!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const result = await deferredPrompt.userChoice;
+  if(result.outcome === "accepted"){
+    installBtn.style.display = "none";
+  }
+  deferredPrompt = null;
+});
+
+/* Sembunyikan jika sudah terinstall */
+window.addEventListener("appinstalled", ()=>{
+  installBtn.style.display = "none";
+});
+</script>
+
+<!-- INSTALL BUTTON -->
+<button id="installBtn">📲 Install Aplikasi</button>
+<script>
+/* ===== SERVICE WORKER ===== */
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('sw.js')
+  .then(()=>console.log('SW registered'))
+  .catch(err=>console.log(err));
+}
+
+/* ===== INSTALL PROMPT ===== */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  e.preventDefault();
+  deferredPrompt = e;
+});
+
+document.addEventListener('keydown', async (e)=>{
+  if(e.key === 'i' && deferredPrompt){
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+  }
+});
+</script>
+
+</body>
+</html>
